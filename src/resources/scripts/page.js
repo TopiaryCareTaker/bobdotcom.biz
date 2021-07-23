@@ -5,24 +5,32 @@ const backgrounds = [
   'top',
   'bottom'
 ];
-
-let currentBackgroundIndex = 0;
-
-let currentBackgroundString =
-`container__background--${backgrounds[currentBackgroundIndex]}`;
-
-let nextBackgroundString = `container__background--${backgrounds[currentBackgroundIndex + 1]}`;
-
 const backgroundElem = document.querySelector('.container__background');
 
-backgroundElem.classList.add(currentBackgroundString);
+let currentBackgroundString = createBackgroundString(currentBackgroundIndex);
+let currentBackgroundIndex = 0;
 
-const changeBackground = (e)=>{
-  backgroundElem.classList.remove(currentBackgroundString);
-  backgroundElem.classList.add(nextBackgroundString);
-  
+backgroundElem.classList.add(createBackgroundString(currentBackgroundIndex));
+backgroundElem.addEventListener('click', changeBackground);
+
+
+function createBackgroundString(dex){
+  return `container__background--${backgrounds[dex]}`;
+};
+
+function changeBackground(){
+  backgroundElem.classList.remove(createBackgroundString( currentBackgroundIndex));
   currentBackgroundIndex = currentBackgroundIndex + 1;
-  window.alert(currentBackgroundIndex)
+  if(currentBackgroundIndex >= backgrounds.length){
+    currentBackgroundIndex = 1;
+  }
+  backgroundElem.classList.add(createBackgroundString(currentBackgroundIndex)); 
 }
 
-backgroundElem.addEventListener('click', changeBackground);
+
+
+
+
+
+
+
