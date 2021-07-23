@@ -1,25 +1,22 @@
-*{
-  box-sizing: border-box;
-}
-
+html,
 body{
-  padding:0px;
-  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-
 .container{
   display: flex;
-  width: 100%;
-  height:100vw;
-  max-height: 560px;
+  width: 100vw;
+  height:100vh;
   $root: &;
   
   &__background{
     padding:0px;
     position: relative;
-      
+        
     &:after,
     &:before{
+      transition: all 0.4s linear;
       position: absolute;
       display: block;
       z-index: 0;
@@ -60,20 +57,15 @@ body{
     
     &--right{
       &:after{
-        background-image: url(/resources/images/sectionOneBg.jpg);
-        background-size: cover;
-    
-        background-repeat: no-repeat;
         width:50%;
-        height:260px;
         right: 0px;
-        
+        background-color: yellow;
       }
     }
   
     &--left{
       &:before{
-        background-color: #777;
+        background-color: black;
         width: 50%;
         left: 0;
       }
@@ -81,20 +73,20 @@ body{
       .container__content{
         text-align: left;
         flex-direction: row-reverse;
-
+  
         &--copy{
           flex-direction: column;
           padding: 0 0 0 8px;
         }
-
+  
         &--image{
           padding: 0 8px 0 0;
         }
       }
     }
-  }
+  } 
   
-  &__content{
+  /* &__content{
     width:100%;
     align-self: center;
     justify-content: center;
@@ -112,7 +104,7 @@ body{
       flex-direction: column;
       text-align:right;
       padding-right:8px;
-
+  
       & > * {
           margin: 0px;
       }
@@ -127,5 +119,5 @@ body{
         display:block;
       }
     }
-  }
+  } */
 }
