@@ -3,13 +3,16 @@ const backgrounds = [
   'right',
   'left',
   'top',
-  'bottom'
+  'bottom',
+  'triangle-left',
+  'triangle-right',
+  
 ];
 const backgroundElem = document.querySelector('.container__background');
 
 let currentBackgroundString = createBackgroundString(currentBackgroundIndex);
 let currentBackgroundIndex = 0;
-
+window.alert(createBackgroundString(currentBackgroundIndex));
 backgroundElem.classList.add(createBackgroundString(currentBackgroundIndex));
 backgroundElem.addEventListener('click', changeBackground);
 

@@ -1,0 +1,85 @@
+.container{
+  
+  &__background{
+    $root: &;
+    padding:0px;
+    position: relative;
+        
+    &:after,
+    &:before{
+      transition: all 0.4s linear;
+      position: absolute;
+      display: block;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+    //should reflect backgrounds array in page.js
+    &--top,
+    &--bottom,
+    &--left,
+    &--right,
+    &--full-bleed,
+    &--triangle-left,
+    &--triangle-right{  
+      &:before,
+      &:after{
+        content: "";
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+      }
+    }
+    
+    &--triangle-left:before{
+      width: 0;
+      height: 0;
+      
+      border-right: 100vh solid yellow;
+    
+      border-top: 100vw solid cyan;
+    }
+    
+    &--triangle-right:after{
+      width: 0; 
+      height: 0; 
+      border-left: 100vw solid transparent;
+      border-right: 100vw solid transparent;
+      border-bottom: 85vh solid black;
+    }
+    
+    &--top{
+      &:before{
+        top: 0px;
+        height: 50%;
+        background-color: cyan;
+      }
+    }
+      
+    &--bottom{
+      &:after{
+        bottom: 0px;
+        height: 50%;
+        background-color: magenta;
+      }
+    }
+      
+    &--right{
+      &:after{
+        width:50%;
+        right: 0px;
+        left: auto;
+        background-color: yellow;
+      }
+    }
+    
+    &--left{
+      &:before{
+        background-color: black;
+        width: 50%;
+        left: 0;
+      }
+    }
+  }
+}

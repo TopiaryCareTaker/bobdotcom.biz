@@ -4,6 +4,9 @@ ALL IMPORTS AND NO CODE.
 
 //MAIN IMPORTS
 import './index.scss';
+import './resources/styles/_backgrounds.scss';
+
+
 import './resources/scripts/page.js';
 
 //STYLE LIBRARY
